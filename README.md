@@ -1,4 +1,4 @@
-# Python: Sonarr Client
+# Python: Sonarr and Radarr Client
 
 Asynchronous Python client for Sonarr and Radarr API's.
 
