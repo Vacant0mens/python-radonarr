@@ -2,7 +2,7 @@
 
 Asynchronous Python client for Sonarr and Radarr API's.
 
-This project was derived from [ctalkington/python-sonarr](https://github.com/ctalkington/python-sonarr) (available via pypi/pip)
+This project was derived from [ctalkington/python-sonarr](https://github.com/ctalkington/python-sonarr) (available via pypi/pip), and my own [python-radarr](https://github.com/Vacant0mens/python-radarr)
 
 Since Sonarr and Radarr were created from the same roots, it's not hard to have them together.
 
@@ -28,7 +28,7 @@ from datetime import datetime
 
 async def main():
     """Show example of connecting to your Sonarr instance."""
-    async with Sonarr("192.168.1.100", "API_TOKEN") as sonarr:
+    async with Sonarr(host="192.168.1.100", api_key="API_TOKEN", port=8989) as sonarr:
         # basic: simple api for monitoring purposes only.
         info = await sonarr.update()
         print(info)
@@ -48,7 +48,7 @@ async def main():
         wanted = await sonarr.wanted()
         print(wanted)
 
-    async with Radarr("192.168.1.100", "API_KEY", port=7878) as radarr:
+    async with Radarr(host="192.168.1.100", api_key="API_KEY", port=7878) as radarr:
         # basic: simple api for monitoring purposes only.
         info = await radarr.update()
         print(f"Update Info:\n{info.info}")
